@@ -9,6 +9,7 @@ This project provides a web-based interface for experimenting with Joint Bilater
 - Adjust JBU parameters in real-time
 - Visualize results and compare different parameter settings
 - Analyze upsampling quality through various metrics
+- Downscale images for testing purposes
 
 ## Installation
 
@@ -27,11 +28,30 @@ pip install -r requirements.txt
 
 ## Usage
 
+### JBU Viewer Application
 ```bash
 streamlit run app.py
 ```
 
 Then open your web browser and navigate to the URL shown in the terminal (typically http://localhost:8501).
+
+### Image Downscaling Tool
+The repository includes a utility script for downscaling images, which is useful for creating test data:
+
+```bash
+# Basic usage - outputs to 'downscaled_[input_filename]'
+python downscale.py input_image.jpg
+
+# Specify output path
+python downscale.py input_image.jpg -o output_image.jpg
+```
+
+The downscale script features:
+- Reduces image size to 1/4 of original (1/2 in each dimension)
+- Uses high-quality INTER_AREA interpolation
+- Supports common image formats (JPEG, PNG, BMP)
+- Automatic output filename generation
+- Error handling and status reporting
 
 ## Features
 
@@ -40,6 +60,7 @@ Then open your web browser and navigate to the URL shown in the terminal (typica
 - Support for various image formats
 - Error metrics visualization
 - Side-by-side comparison view
+- Image downscaling utility
 
 ## Dependencies
 
